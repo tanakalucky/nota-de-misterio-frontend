@@ -4,7 +4,12 @@
     "workspaceFolder": "/workdir",
     "customizations": {
       "vscode": {
-        "extensions": ["eamodio.gitlens", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+        "extensions": [
+			  "eamodio.gitlens",
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"bradlc.vscode-tailwindcss"
+		],
         "settings": {
           "prettier.configPath": ".prettierrc.json",
           "editor.defaultFormatter": "esbenp.prettier-vscode",
