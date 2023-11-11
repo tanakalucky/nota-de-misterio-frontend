@@ -1,13 +1,9 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { WrappedMaterialSelect } from '@/components/WrappedMaterialSelect';
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom';
 import { setup } from '@/test/utils';
 import { isNull } from '@/utils/typeguard';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('WrappedMaterialSelect', () => {
   it('renders the select with options', async () => {
