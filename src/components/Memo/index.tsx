@@ -3,15 +3,18 @@ import clsx from 'clsx';
 import { FC } from 'react';
 import { WrappedMaterialSelect } from '@/components/WrappedMaterialSelect';
 import { HOURS, TIMES } from '@/config';
+import { usePeopleState } from '@/hooks/usePeopleState';
 
 type MemoProps = {
   className?: string;
 };
 
 export const Memo: FC<MemoProps> = ({ className }) => {
+  const { people, onChangePeople } = usePeopleState();
+
   return (
     <Card color="transparent" className={(clsx(className), 'flex flex-col items-center justify-center gap-3 p-6')}>
-      <Input label="人数" crossOrigin="" />
+      <Input label="人数" type="number" crossOrigin="" value={people} onChange={onChangePeople} />
       <Input label="日数" crossOrigin="" />
       <WrappedMaterialSelect label="開始時刻" options={HOURS} />
       <WrappedMaterialSelect label="終了時刻" options={HOURS} />
