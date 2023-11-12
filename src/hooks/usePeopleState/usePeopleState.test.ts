@@ -18,6 +18,12 @@ describe('usePeopleState', () => {
     });
 
     expect(result.current.people).toBe(5);
+
+    act(() => {
+      result.current.onChangePeople({ target: { value: '' } } as ChangeEvent<HTMLInputElement>);
+    });
+
+    expect(result.current.people).toBe(undefined);
   });
 
   it('should ignore non-numeric inputs', () => {
@@ -27,6 +33,6 @@ describe('usePeopleState', () => {
       result.current.onChangePeople({ target: { value: 'abc' } } as ChangeEvent<HTMLInputElement>);
     });
 
-    expect(result.current.people).toBe(5);
+    expect(result.current.people).toBe(undefined);
   });
 });

@@ -2,7 +2,7 @@ import { StateCreator } from 'zustand';
 
 export interface DaysSlice {
   days?: number;
-  setDays: (days: number) => void;
+  setDays: (days?: number) => void;
 }
 
 export const createDaysSlice: StateCreator<DaysSlice> = (set) => ({

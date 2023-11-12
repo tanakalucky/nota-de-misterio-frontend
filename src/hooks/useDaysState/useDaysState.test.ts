@@ -18,6 +18,12 @@ describe('useDaysState', () => {
     });
 
     expect(result.current.days).toBe(5);
+
+    act(() => {
+      result.current.onChangeDays({ target: { value: '' } } as ChangeEvent<HTMLInputElement>);
+    });
+
+    expect(result.current.days).toBe(undefined);
   });
 
   it('should ignore non-numeric inputs', () => {
@@ -27,6 +33,6 @@ describe('useDaysState', () => {
       result.current.onChangeDays({ target: { value: 'abc' } } as ChangeEvent<HTMLInputElement>);
     });
 
-    expect(result.current.days).toBe(5);
+    expect(result.current.days).toBe(undefined);
   });
 });

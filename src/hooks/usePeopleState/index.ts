@@ -6,6 +6,11 @@ export const usePeopleState = () => {
   const setPeople = useBoundStore((state) => state.setPeople);
 
   const onChangePeople = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') {
+      setPeople(undefined);
+      return;
+    }
+
     if (!isNaN(Number(e.target.value))) {
       setPeople(Number(e.target.value));
     }

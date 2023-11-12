@@ -6,6 +6,11 @@ export const useDaysState = () => {
   const setDays = useBoundStore((state) => state.setDays);
 
   const onChangeDays = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') {
+      setDays(undefined);
+      return;
+    }
+
     if (!isNaN(Number(e.target.value))) {
       setDays(Number(e.target.value));
     }
