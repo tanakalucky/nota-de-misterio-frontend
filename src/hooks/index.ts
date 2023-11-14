@@ -4,3 +4,4 @@ export * from '@/hooks/useStartHourState';
 export * from '@/hooks/useEndHourState';
 export * from '@/hooks/useIntervalState';
 export * from '@/hooks/useTimesState';
+export * from '@/hooks/usePlayersState';

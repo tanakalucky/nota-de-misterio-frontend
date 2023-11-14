@@ -8,6 +8,7 @@ import {
   useEndHourState,
   useIntervalState,
   usePeopleState,
+  usePlayersState,
   useStartHourState,
   useTimesState,
 } from '@/hooks';
@@ -25,12 +26,20 @@ export const Memo: FC<MemoProps> = ({ className }) => {
   const { endHour, onChangeEndHour } = useEndHourState();
   const { interval, onChangeInterval } = useIntervalState();
   const { times = [], updateTimes } = useTimesState();
+  const { players = [], updatePlayers } = usePlayersState();
   const handleClick = () => {
-    if (isUndefined(days) || isUndefined(startHour) || isUndefined(endHour) || isUndefined(interval)) {
+    if (
+      isUndefined(people) ||
+      isUndefined(days) ||
+      isUndefined(startHour) ||
+      isUndefined(endHour) ||
+      isUndefined(interval)
+    ) {
       return;
     }
 
     updateTimes({ days: days, startTime: startHour, endTime: endHour, interval });
+    updatePlayers(people);
   };
 
   return (
@@ -48,7 +57,7 @@ export const Memo: FC<MemoProps> = ({ className }) => {
       <Button className="w-1/2" onClick={handleClick}>
         生成
       </Button>
-      <TimeTable times={times} players={['player1', 'player2']} />
+      <TimeTable times={times} players={players} />
     </Card>
   );
 };
