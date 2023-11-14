@@ -6,3 +6,7 @@ type EmptyString = '';
 export const isEmptyString = (obj: unknown): obj is EmptyString => {
   return obj === '';
 };
+
+export const isUndefined = (obj: unknown): obj is undefined => {
+  return obj === undefined;
+};

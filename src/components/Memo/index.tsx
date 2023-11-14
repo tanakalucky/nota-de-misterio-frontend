@@ -3,7 +3,16 @@ import clsx from 'clsx';
 import { FC } from 'react';
 import { WrappedMaterialSelect } from '@/components/WrappedMaterialSelect';
 import { HOURS, TIMES } from '@/config';
-import { useDaysState, useEndHourState, useIntervalState, usePeopleState, useStartHourState } from '@/hooks';
+import {
+  useDaysState,
+  useEndHourState,
+  useIntervalState,
+  usePeopleState,
+  useStartHourState,
+  useTimesState,
+} from '@/hooks';
+import { TimeTable } from '@/components/TimeTable';
+import { isUndefined } from '@/utils';
 
 type MemoProps = {
   className?: string;
@@ -15,6 +24,14 @@ export const Memo: FC<MemoProps> = ({ className }) => {
   const { startHour, onChangeStartHour } = useStartHourState();
   const { endHour, onChangeEndHour } = useEndHourState();
   const { interval, onChangeInterval } = useIntervalState();
+  const { times = [], updateTimes } = useTimesState();
+  const handleClick = () => {
+    if (isUndefined(days) || isUndefined(startHour) || isUndefined(endHour) || isUndefined(interval)) {
+      return;
+    }
+
+    updateTimes({ days: days, startTime: startHour, endTime: endHour, interval });
+  };
 
   return (
     <Card color="transparent" className={clsx(className, 'flex flex-col items-center justify-center gap-3 p-6')}>
@@ -28,7 +45,10 @@ export const Memo: FC<MemoProps> = ({ className }) => {
         value={interval?.toString()}
         onChange={onChangeInterval}
       />
-      <Button className="w-1/2">生成</Button>
+      <Button className="w-1/2" onClick={handleClick}>
+        生成
+      </Button>
+      <TimeTable times={times} players={['player1', 'player2']} />
     </Card>
   );
 };

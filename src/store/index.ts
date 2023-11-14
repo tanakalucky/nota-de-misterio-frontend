@@ -4,8 +4,9 @@ import { DaysSlice, createDaysSlice } from '@/store/daysSlice';
 import { StartHourSlice, createStartHourSlice } from '@/store/startHourSlice';
 import { EndHourSlice, createEndHourSlice } from '@/store/endHourSlice';
 import { IntervalSlice, createIntervalSlice } from '@/store/intervalSlice';
+import { TimesSlice, createTimesSlice } from '@/store/timesSlice';
 
-type BoundStore = PeopleSlice & DaysSlice & StartHourSlice & EndHourSlice & IntervalSlice;
+type BoundStore = PeopleSlice & DaysSlice & StartHourSlice & EndHourSlice & IntervalSlice & TimesSlice;
 
 export const useBoundStore = create<BoundStore>((...a) => ({
   ...createPeopleSlice(...a),
@@ -13,4 +14,5 @@ export const useBoundStore = create<BoundStore>((...a) => ({
   ...createStartHourSlice(...a),
   ...createEndHourSlice(...a),
   ...createIntervalSlice(...a),
+  ...createTimesSlice(...a),
 }));
