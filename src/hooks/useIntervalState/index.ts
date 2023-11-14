@@ -5,7 +5,12 @@ export const useIntervalState = () => {
   const setInterval = useBoundStore((state) => state.setInterval);
 
   const onChangeInterval = (interval?: string) => {
-    setInterval(interval);
+    if (interval === '') {
+      setInterval(undefined);
+      return;
+    }
+
+    setInterval(Number(interval));
   };
 
   return { interval, onChangeInterval };

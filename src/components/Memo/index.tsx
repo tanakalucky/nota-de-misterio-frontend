@@ -22,7 +22,12 @@ export const Memo: FC<MemoProps> = ({ className }) => {
       <Input label="日数" type="number" crossOrigin="" value={days} onChange={onChangeDays} />
       <WrappedMaterialSelect label="開始時刻" options={HOURS} value={startHour} onChange={onChangeStartHour} />
       <WrappedMaterialSelect label="終了時刻" options={HOURS} value={endHour} onChange={onChangeEndHour} />
-      <WrappedMaterialSelect label="時間間隔" options={TIMES} value={interval} onChange={onChangeInterval} />
+      <WrappedMaterialSelect
+        label="時間間隔"
+        options={TIMES}
+        value={interval?.toString()}
+        onChange={onChangeInterval}
+      />
       <Button className="w-1/2">生成</Button>
     </Card>
   );
