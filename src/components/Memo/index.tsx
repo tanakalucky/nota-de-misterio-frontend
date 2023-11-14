@@ -14,6 +14,7 @@ import {
 } from '@/hooks';
 import { TimeTable } from '@/components/TimeTable';
 import { isUndefined } from '@/utils';
+import { PlayerNote } from '@/components/PlayerNote';
 
 type MemoProps = {
   className?: string;
@@ -58,6 +59,7 @@ export const Memo: FC<MemoProps> = ({ className }) => {
         生成
       </Button>
       <TimeTable times={times} players={players} />
+      <PlayerNote players={players} />
     </Card>
   );
 };
