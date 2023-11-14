@@ -6,5 +6,5 @@ export interface TimesSlice {
 }
 
 export const createTimesSlice: StateCreator<TimesSlice> = (set) => ({
-  setTimes: (times) => set(() => ({ times: times })),
+  setTimes: (times) => set(() => ({ times })),
 });

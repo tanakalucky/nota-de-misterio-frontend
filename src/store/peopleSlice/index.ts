@@ -6,5 +6,5 @@ export interface PeopleSlice {
 }
 
 export const createPeopleSlice: StateCreator<PeopleSlice> = (set) => ({
-  setPeople: (people) => set(() => ({ people: people })),
+  setPeople: (people) => set(() => ({ people })),
 });

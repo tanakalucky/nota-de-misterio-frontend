@@ -6,5 +6,5 @@ export interface IntervalSlice {
 }
 
 export const createIntervalSlice: StateCreator<IntervalSlice> = (set) => ({
-  setInterval: (interval) => set(() => ({ interval: interval })),
+  setInterval: (interval) => set(() => ({ interval })),
 });

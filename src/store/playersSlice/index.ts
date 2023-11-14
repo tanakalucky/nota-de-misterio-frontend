@@ -6,5 +6,5 @@ export interface PlayersSlice {
 }
 
 export const createPlayersSlice: StateCreator<PlayersSlice> = (set) => ({
-  setPlayers: (players) => set(() => ({ players: players })),
+  setPlayers: (players) => set(() => ({ players })),
 });

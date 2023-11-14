@@ -5,11 +5,11 @@ import { WrappedMaterialSelect } from '@/components/WrappedMaterialSelect';
 import { HOURS, TIMES } from '@/config';
 import {
   useDaysState,
-  useEndHourState,
+  useEndTimeState,
   useIntervalState,
   usePeopleState,
   usePlayersState,
-  useStartHourState,
+  useStartTimeState,
   useTimesState,
 } from '@/hooks';
 import { TimeTable } from '@/components/TimeTable';
@@ -23,8 +23,8 @@ type MemoProps = {
 export const Memo: FC<MemoProps> = ({ className }) => {
   const { people, onChangePeople } = usePeopleState();
   const { days, onChangeDays } = useDaysState();
-  const { startHour, onChangeStartHour } = useStartHourState();
-  const { endHour, onChangeEndHour } = useEndHourState();
+  const { startTime, onChangeStartTime } = useStartTimeState();
+  const { endTime, onChangeEndTime } = useEndTimeState();
   const { interval, onChangeInterval } = useIntervalState();
   const { times = [], updateTimes } = useTimesState();
   const { players = [], updatePlayers } = usePlayersState();
@@ -32,14 +32,14 @@ export const Memo: FC<MemoProps> = ({ className }) => {
     if (
       isUndefined(people) ||
       isUndefined(days) ||
-      isUndefined(startHour) ||
-      isUndefined(endHour) ||
+      isUndefined(startTime) ||
+      isUndefined(endTime) ||
       isUndefined(interval)
     ) {
       return;
     }
 
-    updateTimes({ days: days, startTime: startHour, endTime: endHour, interval });
+    updateTimes({ days, startTime, endTime, interval });
     updatePlayers(people);
   };
 
@@ -47,8 +47,8 @@ export const Memo: FC<MemoProps> = ({ className }) => {
     <Card color="transparent" className={clsx(className, 'flex flex-col items-center justify-center gap-3 p-6')}>
       <Input label="人数" type="number" crossOrigin="" value={people} onChange={onChangePeople} />
       <Input label="日数" type="number" crossOrigin="" value={days} onChange={onChangeDays} />
-      <WrappedMaterialSelect label="開始時刻" options={HOURS} value={startHour} onChange={onChangeStartHour} />
-      <WrappedMaterialSelect label="終了時刻" options={HOURS} value={endHour} onChange={onChangeEndHour} />
+      <WrappedMaterialSelect label="開始時刻" options={HOURS} value={startTime} onChange={onChangeStartTime} />
+      <WrappedMaterialSelect label="終了時刻" options={HOURS} value={endTime} onChange={onChangeEndTime} />
       <WrappedMaterialSelect
         label="時間間隔"
         options={TIMES}

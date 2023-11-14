@@ -6,5 +6,5 @@ export interface DaysSlice {
 }
 
 export const createDaysSlice: StateCreator<DaysSlice> = (set) => ({
-  setDays: (days) => set(() => ({ days: days })),
+  setDays: (days) => set(() => ({ days })),
 });
