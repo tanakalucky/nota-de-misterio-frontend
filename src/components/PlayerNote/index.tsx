@@ -21,8 +21,8 @@ export const PlayerNote: FC<PlayerNoteProps> = ({ players }) => {
       </thead>
       <tbody>
         <tr>
-          {players.map(() => (
-            <td className="p-4 border border-blue-gray-50" contentEditable />
+          {players.map((_, index) => (
+            <td key={index} className="p-4 border border-blue-gray-50" contentEditable />
           ))}
         </tr>
       </tbody>

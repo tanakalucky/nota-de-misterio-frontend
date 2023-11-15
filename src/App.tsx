@@ -4,11 +4,11 @@ import { Footer } from '@/components/Footer';
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen items-center">
       <Header />
-      <Memo />
+      <Memo className="flex-1" />
       <Footer />
-    </>
+    </div>
   );
 }
 
