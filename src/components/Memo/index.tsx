@@ -1,4 +1,4 @@
-import { Button, Card, Input } from '@material-tailwind/react';
+import { Button, Card, Input, Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '@material-tailwind/react';
 import clsx from 'clsx';
 import { FC } from 'react';
 import { WrappedMaterialSelect } from '@/components/WrappedMaterialSelect';
@@ -58,8 +58,22 @@ export const Memo: FC<MemoProps> = ({ className }) => {
       <Button className="w-1/2" onClick={handleClick}>
         生成
       </Button>
-      <TimeTable times={times} players={players} />
-      <PlayerNote players={players} />
+      {times.length !== 0 && players.length !== 0 && (
+        <Tabs value="time-table">
+          <TabsHeader>
+            <Tab value="time-table">タイムテーブル</Tab>
+            <Tab value="player-note">メモ</Tab>
+          </TabsHeader>
+          <TabsBody>
+            <TabPanel value="time-table">
+              <TimeTable times={times} players={players} />
+            </TabPanel>
+            <TabPanel value="player-note">
+              <PlayerNote players={players} />
+            </TabPanel>
+          </TabsBody>
+        </Tabs>
+      )}
     </Card>
   );
 };
