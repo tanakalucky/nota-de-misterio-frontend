@@ -1,0 +1,9 @@
+{
+  "Parameters": {
+    "CodePipeLineName": "nota-de-misterio-frontend-pipeline",
+    "ArtifactBucketName": "nota-de-misterio-frontend-pipeline-artifact-store",
+    "EventBridgeName": "nota-de-misterio-frontend-eventbridge-pipeline",
+    "EventBridgeRoleName": "nota-de-misterio-frontend-eventbridge-role",
+    "EventBridgePolicyName": "nota-de-misterio-frontend-eventbridge-policy"
+  }
+}

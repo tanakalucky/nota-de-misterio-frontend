@@ -1,0 +1,6 @@
+{
+  "Parameters": {
+    "SourceBucketName": "nota-de-misterio-frontend-source-bucket",
+    "DestributionName": "nota-de-misterio-frontend-destribution"
+  }
+}
