@@ -54,8 +54,8 @@ Resources:
     Type: AWS::CloudFront::OriginAccessControl
     Properties:
       OriginAccessControlConfig:
-        Description: TestProject Origin Access Control
-        Name: TestProjectOAC
+        Description: NotaDeMisterio Origin Access Control
+        Name: NotaDeMisterioOAC
         OriginAccessControlOriginType: s3
         SigningBehavior: always
         SigningProtocol: sigv4
@@ -67,7 +67,7 @@ Resources:
         DefaultTTL: 86400
         MaxTTL: 31536000
         MinTTL: 0
-        Name: TestProjectCachePolicy
+        Name: NotaDeMisterioCachePolicy
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: none
